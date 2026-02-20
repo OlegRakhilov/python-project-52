@@ -1,0 +1,19 @@
+*.sqlite3
+
+# Виртуальное окружение (uv создаёт его локально)
+.venv/
+__pycache__/
+*.py[cod]
+
+# Статические файлы (они собираются командой collectstatic в build.sh)
+staticfiles/
+
+# Секретные данные и переменные окружения
+.env
+
+# Логи и временные файлы gunicorn
+*.log
+gunicorn.ctl
+
+# Файлы системы macOS
+.DS_Store
