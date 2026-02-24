@@ -15,13 +15,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from django.http import HttpResponse
+from django.urls import path, include 
+from django.shortcuts import render
 
-def home(request):
-    return HttpResponse("<h1>Привет от Task Manager!</h1>")
+def index(request):
+    return render(request, 'index.html')  # Используем render
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home, name='index'),
+    path('', index, name='index'),
+    path('i18n/', include('django.conf.urls.i18n')),
 ]
