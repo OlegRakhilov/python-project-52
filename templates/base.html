@@ -14,14 +14,17 @@
             <a class="navbar-brand" href="{% url 'index' %}">{% trans "Task Manager" %}</a>
             <div class="navbar-nav me-auto">
                 <a class="nav-link" href="{% url 'users' %}">{% trans "Users" %}</a>
-                <a class="nav-link" href="{% url 'statuses' %}">{% trans "Statuses" %}</a>
                 {% if user.is_authenticated %}
-                    {# Кнопка Logout должна быть POST-запросом для безопасности в новых Django #}
+                    {# Ссылки для авторизованных пользователей #}
+                    <a class="nav-link" href="{% url 'statuses' %}">{% trans "Statuses" %}</a>
+                    <a class="nav-link" href="{% url 'tasks' %}">{% trans "Tasks" %}</a>
+        
                     <form action="{% url 'logout' %}" method="post" class="d-inline">
                         {% csrf_token %}
                         <button type="submit" class="nav-link btn btn-link">{% trans "Logout" %}</button>
                     </form>
                 {% else %}
+                    {# Ссылки для гостей #}
                     <a class="nav-link" href="{% url 'login' %}">{% trans "Login" %}</a>
                     <a class="nav-link" href="{% url 'user_create' %}">{% trans "Registration" %}</a>
                 {% endif %}

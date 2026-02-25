@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<h1 class="my-4">{{ task.name }}</h1>
+
+<div class="card mb-3">
+  <div class="card-body bg-light">
+    <p class="card-text">{{ task.description|default:"" }}</p>
+    <hr>
+    <div class="container">
+      <div class="row">
+        <div class="col">{% trans "Author" %}</div>
+        <div class="col">{{ task.author.get_full_name }}</div>
+      </div>
+      <div class="row">
+        <div class="col">{% trans "Executor" %}</div>
+        <div class="col">{{ task.executor.get_full_name|default:"" }}</div>
+      </div>
+      <div class="row">
+        <div class="col">{% trans "Status" %}</div>
+        <div class="col">{{ task.status.name }}</div>
+      </div>
+      <div class="row">
+        <div class="col">{% trans "Created at" %}</div>
+        <div class="col">{{ task.created_at|date:"d.m.Y H:i" }}</div>
+      </div>
+      <div class="row mt-3">
+        <div class="col">
+          <h6>{% trans "Labels" %}:</h6>
+          <ul>
+            {% for label in task.labels.all %}
+              <li>{{ label.name }}</li>
+            {% empty %}
+              <li>{% trans "No labels" %}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
