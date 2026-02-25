@@ -8,4 +8,5 @@ class TaskForm(forms.ModelForm):
         fields = ('name', 'description', 'status', 'executor', 'labels')
         widgets = {
             'description': forms.Textarea(attrs={'rows': 5}),
+            'labels': forms.SelectMultiple(attrs={'class': 'form-select'}),
         }
