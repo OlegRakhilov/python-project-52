@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-24 15:00+0000\n"
+"POT-Creation-Date: 2026-02-25 08:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,22 +21,18 @@ msgstr ""
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
 #: statuses/models.py:7 templates/statuses/index.html:13
-#| msgid "Full Name"
 msgid "Name"
 msgstr "Имя"
 
 #: statuses/views.py:20
-#| msgid "User is successfully updated"
 msgid "Status successfully created"
 msgstr "Статус успешно создан"
 
 #: statuses/views.py:27
-#| msgid "User is successfully updated"
 msgid "Status successfully updated"
 msgstr "Статус успешно обновлен"
 
 #: statuses/views.py:33
-#| msgid "User is successfully deleted"
 msgid "Status successfully deleted"
 msgstr "Статус успешно удален"
 
@@ -93,17 +89,14 @@ msgid "Enter"
 msgstr "Ввод"
 
 #: templates/statuses/create.html:6 templates/statuses/index.html:7
-#| msgid "Created at"
 msgid "Create status"
 msgstr "Создать статус"
 
 #: templates/statuses/create.html:11
-#| msgid "Created at"
 msgid "Create"
 msgstr "Создать"
 
 #: templates/statuses/delete.html:6
-#| msgid "Delete user"
 msgid "Delete status"
 msgstr "Удалить статус"
 
@@ -128,7 +121,6 @@ msgid "Delete"
 msgstr "Удаление"
 
 #: templates/statuses/update.html:6
-#| msgid "Update user"
 msgid "Update status"
 msgstr "Изменить статус"
 
@@ -137,7 +129,6 @@ msgid "Update"
 msgstr "Обновить"
 
 #: templates/users/create.html:11
-#| msgid "Registration"
 msgid "Register"
 msgstr "Регистрация"
 
@@ -146,7 +137,6 @@ msgid "Delete user"
 msgstr "Удалить пользователя"
 
 #: templates/users/index.html:10
-#| msgid "Users"
 msgid "Username"
 msgstr "Пользователи"
 
@@ -158,22 +148,30 @@ msgstr "Полное имя"
 msgid "Update user"
 msgstr "Обновить пользователя"
 
-#: users/views.py:20
+#: users/forms.py:7
+msgid "First Name"
+msgstr "Имя"
+
+#: users/forms.py:8
+msgid "Last Name"
+msgstr "Фамилия"
+
+#: users/views.py:21
 msgid "User is successfully registered"
 msgstr "Пользователь успешно зарегистрирован"
 
-#: users/views.py:27
+#: users/views.py:28
 msgid "User is successfully updated"
 msgstr "Пользователь успешно обновлен"
 
-#: users/views.py:34
+#: users/views.py:35
 msgid "You do not have permission to edit another user."
 msgstr "У вас нет разрешения на редактирование данных другого пользователя"
 
-#: users/views.py:41
+#: users/views.py:42
 msgid "User is successfully deleted"
 msgstr "Пользователь успешно удален"
 
-#: users/views.py:48
+#: users/views.py:49
 msgid "You do not have permission to delete another user."
 msgstr "У вас нет разрешения на удаление другого пользователя."

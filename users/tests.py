@@ -10,10 +10,12 @@ class UserCrudTest(TestCase):
         self.user = User.objects.get(pk=1)
         # Данные для теста регистрации (C)
         self.user_data = {
+            'first_name': 'Oleg',
+            'last_name': 'Ivanov',
             'username': 'new_user',
             'password1': 'ComplexPass123!',
             'password2': 'ComplexPass123!'
-        }
+            }
 
     # C - Create (Регистрация)
     def test_user_registration(self):
@@ -38,14 +40,15 @@ class UserCrudTest(TestCase):
         
         updated_data = {
             'username': 'updated_name',
-            'password1': 'NewComplexPass123!',
-            'password2': 'NewComplexPass123!'
+            'first_name': 'NewName',
+            'last_name': 'NewLastName'
         }
         response = self.client.post(url, updated_data)
         
         self.assertEqual(response.status_code, 302)
         self.user.refresh_from_db()
         self.assertEqual(self.user.username, 'updated_name')
+        self.assertEqual(self.user.first_name, 'NewName')
 
     # U - Update Protection (Чужого профиля)
     def test_user_update_other_fail(self):
