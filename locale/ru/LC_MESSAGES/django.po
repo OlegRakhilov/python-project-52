@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-25 14:05+0000\n"
+"POT-Creation-Date: 2026-02-25 14:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -89,7 +89,7 @@ msgstr "Статус"
 msgid "Executor"
 msgstr "Исполнитель"
 
-#: tasks/models.py:41 templates/labels/index.html:5
+#: tasks/models.py:41 templates/base.html:20 templates/labels/index.html:5
 #: templates/tasks/index.html:27 templates/tasks/show.html:30
 msgid "Labels"
 msgstr "Метки"
@@ -122,23 +122,23 @@ msgstr "Пользователи"
 msgid "Statuses"
 msgstr "Статусы"
 
-#: templates/base.html:20 templates/tasks/index.html:6
+#: templates/base.html:21 templates/tasks/index.html:6
 msgid "Tasks"
 msgstr "Задачи"
 
-#: templates/base.html:24
+#: templates/base.html:25
 msgid "Logout"
 msgstr "Выход"
 
-#: templates/base.html:28 templates/login.html:6
+#: templates/base.html:29 templates/login.html:6
 msgid "Login"
 msgstr "Вход"
 
-#: templates/base.html:29 templates/users/create.html:6
+#: templates/base.html:30 templates/users/create.html:6
 msgid "Registration"
 msgstr "Регистрация"
 
-#: templates/base.html:67
+#: templates/base.html:68
 msgid "Hexlet Project"
 msgstr "Проект Хекслета"
 
@@ -156,7 +156,7 @@ msgstr "Узнать больше"
 
 #: templates/labels/create.html:6 templates/labels/index.html:7
 msgid "Create label"
-msgstr "Метка создана"
+msgstr "Создать метку"
 
 #: templates/labels/create.html:11 templates/statuses/create.html:11
 #: templates/tasks/create.html:11

@@ -30,28 +30,27 @@ class LabelCrudTest(TestCase):
         self.label.refresh_from_db()
         self.assertEqual(self.label.name, 'Updated Bug')
 
-    def test_delete_label_unused(self):
-        """Проверка удаления метки, которая не привязана к задачам."""
+    def test_delete_unused_label(self):
         self.client.force_login(self.user)
         url = reverse('label_delete', kwargs={'pk': self.label.pk})
         response = self.client.post(url)
-        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, reverse('labels'))
         self.assertFalse(Label.objects.filter(pk=self.label.pk).exists())
 
-    def test_delete_label_in_use_fail(self):
-        """Проверка ЗАПРЕТА удаления метки, если она привязана к задаче."""
-        # Создаем задачу и привязываем к ней метку
-        task = Task.objects.create(
+    def test_delete_label_in_use(self):
+        # Привязываем метку к задаче
+        self.task = Task.objects.create(
             name='Test Task',
             author=self.user,
             status=self.status
         )
-        task.labels.add(self.label)
-
+        self.task.labels.add(self.label)
         self.client.force_login(self.user)
+        
         url = reverse('label_delete', kwargs={'pk': self.label.pk})
         response = self.client.post(url)
-        
-        # Должен быть редирект обратно на список с ошибкой, а метка остаться
-        self.assertEqual(response.status_code, 302)
+    
+        # Метка должна остаться в базе
         self.assertTrue(Label.objects.filter(pk=self.label.pk).exists())
+        # Должен быть редирект на список с ошибкой
+        self.assertRedirects(response, reverse('labels'))
