@@ -14,7 +14,7 @@
             <a class="navbar-brand" href="{% url 'index' %}">{% trans "Task Manager" %}</a>
             <div class="navbar-nav me-auto">
                 <a class="nav-link" href="{% url 'users' %}">{% trans "Users" %}</a>
-                
+                <a class="nav-link" href="{% url 'statuses' %}">{% trans "Statuses" %}</a>
                 {% if user.is_authenticated %}
                     {# Кнопка Logout должна быть POST-запросом для безопасности в новых Django #}
                     <form action="{% url 'logout' %}" method="post" class="d-inline">

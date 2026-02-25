@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-24 12:26+0000\n"
+"POT-Creation-Date: 2026-02-24 15:00+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,11 +20,31 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: task_manager/settings.py:113
+#: statuses/models.py:7 templates/statuses/index.html:13
+#| msgid "Full Name"
+msgid "Name"
+msgstr "Имя"
+
+#: statuses/views.py:20
+#| msgid "User is successfully updated"
+msgid "Status successfully created"
+msgstr "Статус успешно создан"
+
+#: statuses/views.py:27
+#| msgid "User is successfully updated"
+msgid "Status successfully updated"
+msgstr "Статус успешно обновлен"
+
+#: statuses/views.py:33
+#| msgid "User is successfully deleted"
+msgid "Status successfully deleted"
+msgstr "Статус успешно удален"
+
+#: task_manager/settings.py:114
 msgid "English"
 msgstr "Английский"
 
-#: task_manager/settings.py:114
+#: task_manager/settings.py:115
 msgid "Russian"
 msgstr "Русский"
 
@@ -35,6 +55,10 @@ msgstr "Менеджер задач"
 #: templates/base.html:16 templates/users/index.html:5
 msgid "Users"
 msgstr "Пользователи"
+
+#: templates/base.html:17 templates/statuses/index.html:5
+msgid "Statuses"
+msgstr "Статусы"
 
 #: templates/base.html:22
 msgid "Logout"
@@ -50,7 +74,7 @@ msgstr "Регистрация"
 
 #: templates/base.html:64
 msgid "Hexlet Project"
-msgstr "Проэкт Хекслета"
+msgstr "Проект Хекслета"
 
 #: templates/index.html:7
 msgid "Hello from Hexlet!"
@@ -62,14 +86,57 @@ msgstr "Практические курсы по программировани�
 
 #: templates/index.html:9
 msgid "Learn more"
-msgstr "Узнатть больше"
+msgstr "Узнать больше"
 
 #: templates/login.html:11
 msgid "Enter"
 msgstr "Ввод"
 
+#: templates/statuses/create.html:6 templates/statuses/index.html:7
+#| msgid "Created at"
+msgid "Create status"
+msgstr "Создать статус"
+
+#: templates/statuses/create.html:11
+#| msgid "Created at"
+msgid "Create"
+msgstr "Создать"
+
+#: templates/statuses/delete.html:6
+#| msgid "Delete user"
+msgid "Delete status"
+msgstr "Удалить статус"
+
+#: templates/statuses/delete.html:7 templates/users/delete.html:7
+msgid "Are you sure you want to delete"
+msgstr "Вы уверены, что хотите удалить?"
+
+#: templates/statuses/delete.html:11 templates/users/delete.html:11
+msgid "Yes, delete"
+msgstr "Да, удалить"
+
+#: templates/statuses/index.html:14 templates/users/index.html:12
+msgid "Created at"
+msgstr "Дата создания"
+
+#: templates/statuses/index.html:25 templates/users/index.html:25
+msgid "Edit"
+msgstr "Редактирование"
+
+#: templates/statuses/index.html:27 templates/users/index.html:27
+msgid "Delete"
+msgstr "Удаление"
+
+#: templates/statuses/update.html:6
+#| msgid "Update user"
+msgid "Update status"
+msgstr "Изменить статус"
+
+#: templates/statuses/update.html:11 templates/users/update.html:11
+msgid "Update"
+msgstr "Обновить"
+
 #: templates/users/create.html:11
-#, fuzzy
 #| msgid "Registration"
 msgid "Register"
 msgstr "Регистрация"
@@ -78,16 +145,7 @@ msgstr "Регистрация"
 msgid "Delete user"
 msgstr "Удалить пользователя"
 
-#: templates/users/delete.html:7
-msgid "Are you sure you want to delete"
-msgstr "Вы уверены, что хотите удалить?"
-
-#: templates/users/delete.html:11
-msgid "Yes, delete"
-msgstr "Да, удалить"
-
 #: templates/users/index.html:10
-#, fuzzy
 #| msgid "Users"
 msgid "Username"
 msgstr "Пользователи"
@@ -96,25 +154,9 @@ msgstr "Пользователи"
 msgid "Full Name"
 msgstr "Полное имя"
 
-#: templates/users/index.html:12
-msgid "Created at"
-msgstr "Дата создания"
-
-#: templates/users/index.html:25
-msgid "Edit"
-msgstr "Редактирование"
-
-#: templates/users/index.html:27
-msgid "Delete"
-msgstr "Удаление"
-
 #: templates/users/update.html:6
 msgid "Update user"
 msgstr "Обновить пользователя"
-
-#: templates/users/update.html:11
-msgid "Update"
-msgstr "Обновить"
 
 #: users/views.py:20
 msgid "User is successfully registered"
