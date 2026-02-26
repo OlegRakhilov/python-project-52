@@ -5,7 +5,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
 from django.shortcuts import redirect
 from django.utils.translation import gettext_lazy as _
-from labels.models import Label
+from task_manager.labels.models import Label
 
 class LabelListView(LoginRequiredMixin, ListView):
     model = Label

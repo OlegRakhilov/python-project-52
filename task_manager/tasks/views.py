@@ -7,9 +7,9 @@ from django.contrib import messages
 from django.shortcuts import redirect
 from django.utils.translation import gettext_lazy as _
 
-from tasks.models import Task
-from tasks.forms import TaskForm
-from tasks.filters import TaskFilter
+from task_manager.tasks.models import Task
+from task_manager.tasks.forms import TaskForm
+from task_manager.tasks.filters import TaskFilter
 
 # Список задач (с фильтрацией)
 class TaskListView(LoginRequiredMixin, FilterView):

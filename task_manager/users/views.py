@@ -3,11 +3,13 @@ from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.db.models import ProtectedError
+from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
 from django.contrib import messages
 from django.shortcuts import redirect
-from users.forms import CustomUserCreationForm
-from users.forms import CustomUserUpdateForm
+from .forms import CustomUserCreationForm, CustomUserUpdateForm
+
 
 class UserListView(ListView):
     model = User
@@ -48,3 +50,13 @@ class UserDeleteView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixi
     def handle_no_permission(self):
         messages.error(self.request, _("You do not have permission to delete another user."))
         return redirect('users')
+    
+    def post(self, request, *args, **kwargs):
+        try:
+            return super().post(request, *args, **kwargs)
+        except ProtectedError:
+            messages.error(
+                self.request, 
+                _("Cannot delete user because it is in use")
+            )
+            return redirect('users')

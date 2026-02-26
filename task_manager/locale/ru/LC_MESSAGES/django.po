@@ -186,12 +186,12 @@ msgstr "Дата создания"
 #: templates/labels/index.html:25 templates/statuses/index.html:25
 #: templates/tasks/index.html:47 templates/users/index.html:25
 msgid "Edit"
-msgstr "Редактирование"
+msgstr "Изменить"
 
 #: templates/labels/index.html:27 templates/statuses/index.html:27
 #: templates/tasks/index.html:49 templates/users/index.html:27
 msgid "Delete"
-msgstr "Удаление"
+msgstr "Удалить"
 
 #: templates/labels/update.html:6
 msgid "Update label"

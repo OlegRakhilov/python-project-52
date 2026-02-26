@@ -39,11 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'users',
-    'statuses',
+    'task_manager.users',
+    'task_manager.statuses',
     'django_filters',
-    'tasks',
-    'labels',
+    'task_manager.tasks',
+    'task_manager.labels',
 ]
 
 MIDDLEWARE = [
@@ -63,7 +63,7 @@ ROOT_URLCONF = 'task_manager.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': [BASE_DIR / 'task_manager' / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -119,7 +119,7 @@ LANGUAGES = [
 ]
 
 LOCALE_PATHS = [
-    BASE_DIR / 'locale',
+    BASE_DIR / 'task_manager' / 'locale',
 ]
 
 

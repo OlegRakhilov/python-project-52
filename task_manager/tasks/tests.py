@@ -1,9 +1,12 @@
 from django.test import TestCase
 from django.urls import reverse
 from django.contrib.auth.models import User
-from tasks.models import Task
-from statuses.models import Status
-from labels.models import Label
+from django.utils.translation import gettext_lazy as _
+from django.contrib.messages import get_messages
+from task_manager.tasks.models import Task
+from task_manager.statuses.models import Status
+from task_manager.labels.models import Label
+
 
 class TaskCrudTest(TestCase):
     fixtures = []
@@ -33,6 +36,7 @@ class TaskCrudTest(TestCase):
         response = self.client.get(reverse('tasks'))
         self.assertEqual(response.status_code, 200)
 
+
     def test_create_task(self):
         self.client.force_login(self.user1)
         data = {
@@ -42,8 +46,14 @@ class TaskCrudTest(TestCase):
             'labels': [self.label.id]
         }
         response = self.client.post(reverse('task_create'), data)
+        messages = list(get_messages(response.wsgi_request))
+        self.assertEqual(str(messages[0]), _("Task successfully created"))
         self.assertEqual(response.status_code, 302)
-        self.assertTrue(Task.objects.filter(name='New Task').exists())
+        new_task = Task.objects.get(name='New Task')
+        self.assertEqual(new_task.author, self.user1)
+        self.assertEqual(new_task.executor, self.user2)
+        self.assertEqual(new_task.status, self.status)
+        self.assertIn(self.label, new_task.labels.all())
 
     def test_update_task(self):
         self.client.force_login(self.user1)
