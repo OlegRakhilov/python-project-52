@@ -22,6 +22,9 @@ from django.contrib.auth import views as auth_views
 def index(request):
     return render(request, 'index.html')  # Используем render
 
+def make_error(request):
+    division_by_zero = 1 / 0
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='index'),
@@ -31,5 +34,8 @@ urlpatterns = [
     path('statuses/', include('task_manager.statuses.urls')),
     path('tasks/', include('task_manager.tasks.urls')),
     path('labels/', include('task_manager.labels.urls')),
+    path('fail/', make_error),
+    path('rollbar-test/', lambda r: 1/0),
     path('i18n/', include('django.conf.urls.i18n')),
+    
 ]
