@@ -30,7 +30,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-=r4=x!f&a$^fq32qby69k)cn47eamy+q@t!bq0txggug=lbw*$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['webserver', 'localhost', '127.0.0.1', '.onrender.com']
 
@@ -155,4 +155,20 @@ ROLLBAR = {
     'access_token': os.getenv('ROLLBAR_TOKEN'),
     'environment': 'development' if DEBUG else 'production',
     'root': BASE_DIR,
+}
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'rollbar': {
+            'access_token': os.getenv('ROLLBAR_TOKEN'),
+            'environment': 'development' if DEBUG else 'production',
+            'class': 'rollbar.logger.RollbarHandler',
+        },
+    },
+    'root': {
+        'handlers': ['rollbar'],
+        'level': 'WARNING',
+    },
 }
