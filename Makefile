@@ -1,5 +1,5 @@
 setup:
-	pip install .
+	pip install --break-system-packages .
 	python3 manage.py migrate
 	
 build:
