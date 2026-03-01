@@ -2,16 +2,16 @@ build:
 	./build.sh
 
 render-start:
-	uv run gunicorn task_manager.wsgi
+	gunicorn task_manager.wsgi
 
 dev:
-	uv run python manage.py runserver
+	python manage.py runserver
 
 shell:
-	uv run python manage.py shell
+	python manage.py shell
 
 lint:
-	uv run ruff check .
+	ruff check .
 
 test:
-	uv run python manage.py test
+	python manage.py test

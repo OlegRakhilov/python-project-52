@@ -1,17 +1,16 @@
 #!/usr/bin/env bash
 set -o errexit
 
-echo "--- Installing uv ---"
-curl -LsSf https://astral.sh/uv/install.sh | sh
-export PATH="$HOME/.local/bin:$PATH"
-
-echo "--- Syncing dependencies ---"
-uv sync
-
-echo "--- Collecting static files ---"
-uv run python manage.py collectstatic --no-input
+# Мы не ставим uv через curl, так как в CI это может не сработать
+# Используем обычный pip, который точно есть в образе
+echo "--- Installing dependencies ---"
+pip install --upgrade pip
+pip install .
 
 echo "--- Running migrations ---"
-uv run python manage.py migrate
+python manage.py migrate
+
+echo "--- Collecting static files ---"
+python manage.py collectstatic --no-input
 
 echo "--- Build finished! ---"
