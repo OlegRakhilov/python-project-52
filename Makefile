@@ -1,3 +1,7 @@
+setup:
+	pip install .
+	python3 manage.py migrate
+	
 build:
 	./build.sh
 
@@ -5,13 +9,13 @@ render-start:
 	gunicorn task_manager.wsgi
 
 dev:
-	python manage.py runserver
+	python3 manage.py runserver
 
 shell:
-	python manage.py shell
+	python3 manage.py shell
 
 lint:
-	ruff check .
+	python3 -m ruff check .
 
 test:
-	python manage.py test
+	python3 manage.py test
