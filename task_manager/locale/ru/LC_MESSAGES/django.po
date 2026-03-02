@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-02 08:25+0000\n"
+"POT-Creation-Date: 2026-03-02 11:17+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -253,7 +253,6 @@ msgid "Create task"
 msgstr "Создать задачу"
 
 #: task_manager/templates/tasks/delete.html:6
-#| msgid "Delete status"
 msgid "Delete task"
 msgstr "Удалить статус"
 
@@ -326,10 +325,14 @@ msgid "You do not have permission to delete another user."
 msgstr "У вас нет разрешения на удаление другого пользователя."
 
 #: task_manager/users/views.py:61
-#| msgid "Cannot delete label because it is in use"
 msgid "Cannot delete user because it is in use"
 msgstr "Невозможно удалить метку, так как она используется."
 
 #: task_manager/users/views.py:67
 msgid "You are logged in"
 msgstr "Вы залогинены"
+
+#: task_manager/users/views.py:71
+#| msgid "You are logged in"
+msgid "You are logged out"
+msgstr "Вы разлогинены"

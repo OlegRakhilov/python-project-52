@@ -9,7 +9,7 @@ from django.utils.translation import gettext_lazy as _
 from django.contrib import messages
 from django.shortcuts import redirect
 from .forms import CustomUserCreationForm, CustomUserUpdateForm
-from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LoginView, LogoutView
 
 
 class UserListView(ListView):
@@ -65,3 +65,8 @@ class UserDeleteView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixi
 class UserLoginView(SuccessMessageMixin, LoginView):
     template_name = 'login.html'
     success_message = _("You are logged in")
+
+class UserLogoutView(LogoutView):
+    def dispatch(self, request, *args, **kwargs):
+        messages.info(request, _("You are logged out"))
+        return super().dispatch(request, *args, **kwargs)
