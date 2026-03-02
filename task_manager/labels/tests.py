@@ -8,7 +8,9 @@ from task_manager.statuses.models import Status
 
 class LabelCrudTest(TestCase):
     def setUp(self):
-        self.user = User.objects.create_user(username='testuser', password='password123')
+        self.user = User.objects.create_user(
+            username='testuser', password='password123'
+        )
         self.label = Label.objects.create(name='Bug')
         self.status = Status.objects.create(name='New')
 
@@ -20,7 +22,9 @@ class LabelCrudTest(TestCase):
 
     def test_create_label(self):
         self.client.force_login(self.user)
-        response = self.client.post(reverse('label_create'), {'name': 'Feature'})
+        response = self.client.post(
+            reverse('label_create'), {'name': 'Feature'}
+            )
         self.assertEqual(response.status_code, 302)
         self.assertTrue(Label.objects.filter(name='Feature').exists())
 

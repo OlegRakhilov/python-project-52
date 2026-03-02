@@ -13,15 +13,16 @@ class TaskCrudTest(TestCase):
 
     def setUp(self):
         # Создаем пользователей
-        self.user1 = User.objects.create_user(username='author', password='password123')
-        self.user2 = User.objects.create_user(username='executor', password='password123')
-        
+        self.user1 = User.objects.create_user(
+            username='author', password='password123'
+        )
+        self.user2 = User.objects.create_user(
+            username='executor', password='password123'
+        )
         # Создаем статус
         self.status = Status.objects.create(name='New')
-        
         # Создаем метку
         self.label = Label.objects.create(name='Bug')
-        
         # Создаем задачу для тестов (автор — user1)
         self.task = Task.objects.create(
             name='Test Task',
@@ -35,7 +36,6 @@ class TaskCrudTest(TestCase):
         self.client.force_login(self.user1)
         response = self.client.get(reverse('tasks'))
         self.assertEqual(response.status_code, 200)
-
 
     def test_create_task(self):
         self.client.force_login(self.user1)

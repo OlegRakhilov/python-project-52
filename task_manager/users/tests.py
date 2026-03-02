@@ -53,7 +53,9 @@ class UserCrudTest(TestCase):
 
     # U - Update Protection (Чужого профиля)
     def test_user_update_other_fail(self):
-        other_user = User.objects.create_user(username='other', password='123')
+        other_user = User.objects.create_user(
+            username='other', password='123'
+            )
         self.client.force_login(self.user)
         
         url = reverse('user_update', kwargs={'pk': other_user.pk})
@@ -73,7 +75,9 @@ class UserCrudTest(TestCase):
 
     # D - Delete Protection (Чужого профиля)
     def test_user_delete_other_fail(self):
-        other_user = User.objects.create_user(username='other', password='123')
+        other_user = User.objects.create_user(
+            username='other', password='123'
+            )
         self.client.force_login(self.user)
         
         url = reverse('user_delete', kwargs={'pk': other_user.pk})
