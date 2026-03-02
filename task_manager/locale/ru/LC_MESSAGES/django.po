@@ -110,7 +110,7 @@ msgstr "Задача успешно создана"
 
 #: task_manager/tasks/views.py:45
 msgid "Task successfully updated"
-msgstr "Задача успешно обновлена"
+msgstr "Задача успешно изменена"
 
 #: task_manager/tasks/views.py:51
 msgid "Task successfully deleted"
@@ -118,7 +118,7 @@ msgstr "Задача успешно удалена"
 
 #: task_manager/tasks/views.py:58
 msgid "The task can only be deleted by its author."
-msgstr "Удалить задачу может только её автор"
+msgstr "Задачу может удалить только ее автор"
 
 #: task_manager/templates/base.html:8 task_manager/templates/base.html:14
 msgid "Task Manager"
