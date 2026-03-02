@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-02 11:58+0000\n"
+"POT-Creation-Date: 2026-03-02 12:41+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,7 +21,8 @@ msgstr ""
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
 #: task_manager/labels/models.py:5 task_manager/statuses/models.py:7
-#: task_manager/tasks/models.py:9 task_manager/templates/labels/index.html:13
+#: task_manager/tasks/forms.py:22 task_manager/tasks/models.py:9
+#: task_manager/templates/labels/index.html:13
 #: task_manager/templates/statuses/index.html:13
 #: task_manager/templates/tasks/index.html:23
 msgid "Name"
@@ -33,7 +34,7 @@ msgstr "Метка успешно создана"
 
 #: task_manager/labels/views.py:27
 msgid "Label successfully updated"
-msgstr "Метка успешно обновлена"
+msgstr "Метка успешно изменена"
 
 #: task_manager/labels/views.py:33
 msgid "Label successfully deleted"
@@ -57,7 +58,7 @@ msgstr "Статус успешно создан"
 
 #: task_manager/statuses/views.py:30
 msgid "Status successfully updated"
-msgstr "Статус успешно обновлен"
+msgstr "Статус успешно изменен"
 
 #: task_manager/statuses/views.py:36
 msgid "Status successfully deleted"
@@ -65,16 +66,16 @@ msgstr "Статус успешно удален"
 
 #: task_manager/statuses/views.py:44
 msgid "Cannot delete status because it is in use"
-msgstr "Невозможно удалить метку, так как она используется."
+msgstr "Невозможно удалить статус"
 
-#: task_manager/tasks/filters.py:15 task_manager/tasks/models.py:25
-#: task_manager/templates/tasks/index.html:24
+#: task_manager/tasks/filters.py:15 task_manager/tasks/forms.py:23
+#: task_manager/tasks/models.py:25 task_manager/templates/tasks/index.html:24
 #: task_manager/templates/tasks/show.html:21
 msgid "Status"
 msgstr "Статус"
 
-#: task_manager/tasks/filters.py:20 task_manager/tasks/models.py:35
-#: task_manager/templates/tasks/index.html:26
+#: task_manager/tasks/filters.py:20 task_manager/tasks/forms.py:24
+#: task_manager/tasks/models.py:35 task_manager/templates/tasks/index.html:26
 #: task_manager/templates/tasks/show.html:17
 msgid "Executor"
 msgstr "Исполнитель"
@@ -87,6 +88,13 @@ msgstr "Метка"
 msgid "Only own tasks"
 msgstr "Только свои задачи"
 
+#: task_manager/tasks/forms.py:25 task_manager/tasks/models.py:42
+#: task_manager/templates/base.html:20
+#: task_manager/templates/labels/index.html:5
+#: task_manager/templates/tasks/show.html:30
+msgid "Labels"
+msgstr "Метки"
+
 #: task_manager/tasks/models.py:10
 msgid "Description"
 msgstr "Описание"
@@ -95,12 +103,6 @@ msgstr "Описание"
 #: task_manager/templates/tasks/show.html:13
 msgid "Author"
 msgstr "Автор"
-
-#: task_manager/tasks/models.py:42 task_manager/templates/base.html:20
-#: task_manager/templates/labels/index.html:5
-#: task_manager/templates/tasks/show.html:30
-msgid "Labels"
-msgstr "Метки"
 
 #: task_manager/tasks/tests.py:50 task_manager/tasks/views.py:33
 msgid "Task successfully created"
@@ -284,7 +286,7 @@ msgstr "Полное имя"
 
 #: task_manager/templates/users/update.html:6
 msgid "Update user"
-msgstr "Обновить пользователя"
+msgstr "Изменить пользователя"
 
 #: task_manager/users/forms.py:7
 msgid "First Name"
@@ -302,11 +304,11 @@ msgstr "Имя"
 msgid "Last name"
 msgstr "Фамилия"
 
-#: task_manager/users/forms.py:17
+#: task_manager/users/forms.py:18
 msgid "Password"
 msgstr "Пароль"
 
-#: task_manager/users/forms.py:18
+#: task_manager/users/forms.py:23
 msgid "Password confirmation"
 msgstr "Подтверждение пароля"
 
@@ -316,7 +318,7 @@ msgstr "Пользователь успешно зарегистрирован"
 
 #: task_manager/users/views.py:31
 msgid "User is successfully updated"
-msgstr "Пользователь успешно обновлен"
+msgstr "Пользователь успешно изменен"
 
 #: task_manager/users/views.py:38
 msgid "You do not have permission to edit another user."
