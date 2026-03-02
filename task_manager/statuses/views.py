@@ -10,10 +10,12 @@ from django.shortcuts import redirect
 from django.utils.translation import gettext_lazy as _
 from .models import Status
 
+
 class StatusListView(LoginRequiredMixin, ListView):
     model = Status
     template_name = 'statuses/index.html'
     context_object_name = 'statuses'
+
 
 class StatusCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     model = Status
@@ -22,12 +24,14 @@ class StatusCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     success_url = reverse_lazy('statuses')
     success_message = _("Status successfully created")
 
+
 class StatusUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     model = Status
     fields = ['name']
     template_name = 'statuses/update.html'
     success_url = reverse_lazy('statuses')
     success_message = _("Status successfully updated")
+
 
 class StatusDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     model = Status

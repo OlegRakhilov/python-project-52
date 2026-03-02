@@ -11,6 +11,7 @@ from task_manager.tasks.models import Task
 from task_manager.tasks.forms import TaskForm
 from task_manager.tasks.filters import TaskFilter
 
+
 # Список задач (с фильтрацией)
 class TaskListView(LoginRequiredMixin, FilterView):
     queryset = Task.objects.select_related('author', 'executor', 'status').prefetch_related('labels')
@@ -19,11 +20,13 @@ class TaskListView(LoginRequiredMixin, FilterView):
     context_object_name = 'tasks'
     # Сюда позже добавим filterset_class для поиска
 
+
 # Просмотр одной задачи
 class TaskDetailView(LoginRequiredMixin, DetailView):
     model = Task
     template_name = 'tasks/show.html'
     context_object_name = 'task'
+
 
 class TaskCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     model = Task
@@ -37,12 +40,14 @@ class TaskCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
         form.instance.author = self.request.user
         return super().form_valid(form)
 
+
 class TaskUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     model = Task
     form_class = TaskForm
     template_name = 'tasks/update.html'
     success_url = reverse_lazy('tasks')
     success_message = _("Task successfully updated")
+
 
 class TaskDeleteView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, DeleteView):
     model = Task

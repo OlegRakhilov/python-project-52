@@ -5,6 +5,7 @@ from task_manager.labels.models import Label
 from task_manager.tasks.models import Task
 from task_manager.statuses.models import Status
 
+
 class LabelCrudTest(TestCase):
     def setUp(self):
         self.user = User.objects.create_user(username='testuser', password='password123')

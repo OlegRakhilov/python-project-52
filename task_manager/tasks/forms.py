@@ -1,7 +1,7 @@
 from django import forms
 from task_manager.tasks.models import Task
-from django.contrib.auth import get_user_model
 from django.utils.translation import gettext_lazy as _
+
 
 class TaskForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
@@ -9,6 +9,7 @@ class TaskForm(forms.ModelForm):
         # Эта магия заставляет выпадающий список показывать "Имя Фамилия"
         # вместо стандартного "username", что критично для Playwright
         self.fields['executor'].label_from_instance = lambda obj: obj.get_full_name() if obj.get_full_name() else obj.username
+
 
     class Meta:
         model = Task  # ПРОВЕРЬТЕ: эта строка должна быть здесь!

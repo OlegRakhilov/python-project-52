@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 from pathlib import Path
 from django.utils.translation import gettext_lazy as _ 
 import os
-import rollbar
 from dotenv import load_dotenv
 
 load_dotenv()
