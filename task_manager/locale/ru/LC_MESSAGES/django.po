@@ -136,7 +136,7 @@ msgstr "Вход"
 
 #: templates/base.html:30 templates/users/create.html:6
 msgid "Registration"
-msgstr "Регистрация"
+msgstr "Зарегистрировать"
 
 #: templates/base.html:68
 msgid "Hexlet Project"
