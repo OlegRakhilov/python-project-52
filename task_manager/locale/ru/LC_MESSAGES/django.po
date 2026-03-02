@@ -226,7 +226,7 @@ msgstr "Изменить метку"
 #: task_manager/templates/tasks/update.html:11
 #: task_manager/templates/users/update.html:11
 msgid "Update"
-msgstr "Обновить"
+msgstr "Изменить"
 
 #: task_manager/templates/login.html:11
 msgid "Enter"
