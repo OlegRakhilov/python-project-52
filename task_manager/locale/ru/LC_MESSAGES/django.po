@@ -64,7 +64,6 @@ msgid "Status successfully deleted"
 msgstr "Статус успешно удален"
 
 #: task_manager/statuses/views.py:44
-#, fuzzy
 #| msgid "Cannot delete label because it is in use"
 msgid "Cannot delete status because it is in use"
 msgstr "Невозможно удалить метку, так как она используется."
@@ -336,3 +335,7 @@ msgstr "Вы залогинены"
 #| msgid "You are logged in"
 msgid "You are logged out"
 msgstr "Вы разлогинены"
+
+msgid "Password"
+msgstr "Пароль"
+
