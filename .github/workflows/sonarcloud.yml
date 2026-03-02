@@ -56,6 +56,6 @@ jobs:
           SONAR_HOST_URL: https://sonarcloud.io
         with:
           args: >
-            -Dsonar.projectKey=lyovaparsyan94_python-project-52
-            -Dsonar.organization=lyovaparsyan94
+            -Dsonar.projectKey=OlegRakhilov_python-project-52
+            -Dsonar.organization=a9282268847
             -Dsonar.python.coverage.reportPaths=coverage.xml
