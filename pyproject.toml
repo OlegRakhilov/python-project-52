@@ -19,3 +19,8 @@ dependencies = [
 dev = [
     "black>=26.1.0",
 ]
+[tool.black]
+line-length = 79
+
+[tool.ruff]
+line-length = 79

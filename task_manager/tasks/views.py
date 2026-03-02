@@ -14,25 +14,27 @@ from task_manager.tasks.filters import TaskFilter
 
 # Список задач (с фильтрацией)
 class TaskListView(LoginRequiredMixin, FilterView):
-    queryset = Task.objects.select_related('author', 'executor', 'status').prefetch_related('labels')
+    queryset = Task.objects.select_related(
+        "author", "executor", "status"
+    ).prefetch_related("labels")
     filterset_class = TaskFilter
-    template_name = 'tasks/index.html'
-    context_object_name = 'tasks'
+    template_name = "tasks/index.html"
+    context_object_name = "tasks"
     # Сюда позже добавим filterset_class для поиска
 
 
 # Просмотр одной задачи
 class TaskDetailView(LoginRequiredMixin, DetailView):
     model = Task
-    template_name = 'tasks/show.html'
-    context_object_name = 'task'
+    template_name = "tasks/show.html"
+    context_object_name = "task"
 
 
 class TaskCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     model = Task
     form_class = TaskForm
-    template_name = 'tasks/create.html'
-    success_url = reverse_lazy('tasks')
+    template_name = "tasks/create.html"
+    success_url = reverse_lazy("tasks")
     success_message = _("Task successfully created")
 
     def form_valid(self, form):
@@ -44,15 +46,17 @@ class TaskCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
 class TaskUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     model = Task
     form_class = TaskForm
-    template_name = 'tasks/update.html'
-    success_url = reverse_lazy('tasks')
+    template_name = "tasks/update.html"
+    success_url = reverse_lazy("tasks")
     success_message = _("Task successfully updated")
 
 
-class TaskDeleteView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, DeleteView):
+class TaskDeleteView(
+    LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, DeleteView
+):
     model = Task
-    template_name = 'tasks/delete.html'
-    success_url = reverse_lazy('tasks')
+    template_name = "tasks/delete.html"
+    success_url = reverse_lazy("tasks")
     success_message = _("Task successfully deleted")
 
     # Проверка: удалять может только автор
@@ -60,5 +64,7 @@ class TaskDeleteView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixi
         return self.get_object().author == self.request.user
 
     def handle_no_permission(self):
-        messages.error(self.request, _("The task can only be deleted by its author."))
-        return redirect('tasks')
+        messages.error(
+            self.request, _("The task can only be deleted by its author.")
+        )
+        return redirect("tasks")

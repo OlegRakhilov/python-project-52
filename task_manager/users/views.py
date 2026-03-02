@@ -13,20 +13,24 @@ from django.contrib.auth.views import LoginView, LogoutView
 
 class UserListView(ListView):
     model = User
-    template_name = 'users/index.html'
-    context_object_name = 'users'
+    template_name = "users/index.html"
+    context_object_name = "users"
+
 
 class UserCreateView(SuccessMessageMixin, CreateView):
     form_class = CustomUserCreationForm
-    template_name = 'users/create.html'
-    success_url = reverse_lazy('login')
+    template_name = "users/create.html"
+    success_url = reverse_lazy("login")
     success_message = _("User is successfully registered")
 
-class UserUpdateView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, UpdateView):
+
+class UserUpdateView(
+    LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, UpdateView
+):
     model = User
-    form_class = CustomUserUpdateForm 
-    template_name = 'users/update.html'
-    success_url = reverse_lazy('users')
+    form_class = CustomUserUpdateForm
+    template_name = "users/update.html"
+    success_url = reverse_lazy("users")
     success_message = _("User is successfully updated")
 
     def test_func(self):
@@ -34,13 +38,18 @@ class UserUpdateView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixi
 
     # Добавляем редирект вместо ошибки 403
     def handle_no_permission(self):
-        messages.error(self.request, _("You do not have permission to edit another user."))
-        return redirect('users')
+        messages.error(
+            self.request, _("You do not have permission to edit another user.")
+        )
+        return redirect("users")
 
-class UserDeleteView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, DeleteView):
+
+class UserDeleteView(
+    LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, DeleteView
+):
     model = User
-    template_name = 'users/delete.html'
-    success_url = reverse_lazy('users')
+    template_name = "users/delete.html"
+    success_url = reverse_lazy("users")
     success_message = _("User is successfully deleted")
 
     def test_func(self):
@@ -48,22 +57,26 @@ class UserDeleteView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixi
 
     # Добавляем редирект вместо ошибки 403
     def handle_no_permission(self):
-        messages.error(self.request, _("You do not have permission to delete another user."))
-        return redirect('users')
-    
+        messages.error(
+            self.request,
+            _("You do not have permission to delete another user."),
+        )
+        return redirect("users")
+
     def post(self, request, *args, **kwargs):
         try:
             return super().post(request, *args, **kwargs)
         except ProtectedError:
             messages.error(
-                self.request, 
-                _("Cannot delete user because it is in use")
+                self.request, _("Cannot delete user because it is in use")
             )
-            return redirect('users')
-        
+            return redirect("users")
+
+
 class UserLoginView(SuccessMessageMixin, LoginView):
-    template_name = 'login.html'
+    template_name = "login.html"
     success_message = _("You are logged in")
+
 
 class UserLogoutView(LogoutView):
     def dispatch(self, request, *args, **kwargs):
