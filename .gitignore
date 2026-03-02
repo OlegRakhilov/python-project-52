@@ -17,3 +17,4 @@ gunicorn.ctl
 
 # Файлы системы macOS
 .DS_Store
+settings1.py
