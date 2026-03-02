@@ -9,7 +9,7 @@ class CustomUserCreationForm(UserCreationForm):
 
     class Meta(UserCreationForm.Meta):
         model = User
-        fields = ('first_name', 'last_name', 'username')
+        fields = UserCreationForm.Meta.fields + ('first_name', 'last_name')
 
 class CustomUserUpdateForm(forms.ModelForm):
     first_name = forms.CharField(label=_("First name"), max_length=150, required=True)
@@ -17,4 +17,4 @@ class CustomUserUpdateForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'username')
+        fields = ('username', 'first_name', 'last_name')
