@@ -4,14 +4,11 @@
 
 {% block content %}
 <h1 class="my-4">{% trans "Tasks" %}</h1>
-<a class="btn btn-primary mb-3" 
-   href="{% url 'task_create' %}" 
-   role="button"
-   onkeydown="handleKeyDown(event)"
-   onkeypress="handleKeyPress(event)"
-   onkeyup="handleKeyUp(event)">
-   {% trans "Create task" %}
-</a>
+<form action="{% url 'task_create' %}" method="get" class="d-inline">
+    <button type="submit" class="btn btn-primary mb-3">
+        {% trans "Create task" %}
+    </button>
+</form>
 <div class="card mb-3">
     <div class="card-body bg-light">
         <form method="get" class="form-inline d-flex flex-wrap gap-3 align-items-center">
