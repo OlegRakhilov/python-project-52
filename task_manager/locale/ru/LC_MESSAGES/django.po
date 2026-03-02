@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-02 11:17+0000\n"
+"POT-Creation-Date: 2026-03-02 11:58+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -64,7 +64,6 @@ msgid "Status successfully deleted"
 msgstr "Статус успешно удален"
 
 #: task_manager/statuses/views.py:44
-#| msgid "Cannot delete label because it is in use"
 msgid "Cannot delete status because it is in use"
 msgstr "Невозможно удалить метку, так как она используется."
 
@@ -303,6 +302,14 @@ msgstr "Имя"
 msgid "Last name"
 msgstr "Фамилия"
 
+#: task_manager/users/forms.py:17
+msgid "Password"
+msgstr "Пароль"
+
+#: task_manager/users/forms.py:18
+msgid "Password confirmation"
+msgstr "Подтверждение пароля"
+
 #: task_manager/users/views.py:24
 msgid "User is successfully registered"
 msgstr "Пользователь успешно зарегистрирован"
@@ -332,10 +339,5 @@ msgid "You are logged in"
 msgstr "Вы залогинены"
 
 #: task_manager/users/views.py:71
-#| msgid "You are logged in"
 msgid "You are logged out"
 msgstr "Вы разлогинены"
-
-msgid "Password"
-msgstr "Пароль"
-

@@ -14,6 +14,16 @@ class CustomUserCreationForm(UserCreationForm):
 class CustomUserUpdateForm(forms.ModelForm):
     first_name = forms.CharField(label=_("First name"), max_length=150, required=True)
     last_name = forms.CharField(label=_("Last name"), max_length=150, required=True)
+    password = forms.CharField(
+        label=_("Password"), 
+        widget=forms.PasswordInput, 
+        required=False
+    )
+    password_confirm = forms.CharField(
+        label=_("Password confirmation"), 
+        widget=forms.PasswordInput, 
+        required=False
+    )
 
     class Meta:
         model = User
