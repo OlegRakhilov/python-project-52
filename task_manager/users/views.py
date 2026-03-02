@@ -9,6 +9,7 @@ from django.utils.translation import gettext_lazy as _
 from django.contrib import messages
 from django.shortcuts import redirect
 from .forms import CustomUserCreationForm, CustomUserUpdateForm
+from django.contrib.auth.views import LoginView
 
 
 class UserListView(ListView):
@@ -60,3 +61,7 @@ class UserDeleteView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixi
                 _("Cannot delete user because it is in use")
             )
             return redirect('users')
+        
+class UserLoginView(SuccessMessageMixin, LoginView):
+    template_name = 'login.html'
+    success_message = _("You are logged in")
