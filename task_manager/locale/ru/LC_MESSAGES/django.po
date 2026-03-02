@@ -204,7 +204,7 @@ msgstr "Обновить"
 
 #: templates/login.html:11
 msgid "Enter"
-msgstr "Ввод"
+msgstr "Войти"
 
 #: templates/statuses/create.html:6 templates/statuses/index.html:7
 msgid "Create status"
