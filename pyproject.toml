@@ -18,9 +18,18 @@ dependencies = [
 [dependency-groups]
 dev = [
     "black>=26.1.0",
+    "pytest>=9.0.2",
+    "pytest-cov>=7.0.0",
+    "pytest-django>=4.12.0",
 ]
 [tool.black]
 line-length = 79
 
 [tool.ruff]
 line-length = 79
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "task_manager.settings"
+python_files = ["tests.py", "test_*.py", "*_tests.py"]
+addopts = "--nomigrations"
+testpaths = ["tests", "task_manager"] # Укажите здесь папки, где лежат ваши тесты

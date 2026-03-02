@@ -14,8 +14,20 @@ dev:
 shell:
 	python3 manage.py shell
 
+ci-install:
+	uv sync
+
+# Миграции для CI
+ci-migrate:
+	uv run python manage.py migrate
+
+# Запуск тестов с генерацией XML отчета для SonarCloud
+ci-test:
+	uv run pytest --cov=. --cov-report=xml
+
+# Остальные команды (для локальной разработки)
 lint:
-	python3 -m ruff check .
+	uv run ruff check .
 
 test:
-	python3 manage.py test
+	uv run pytest
