@@ -3,6 +3,9 @@
 
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=OlegRakhilov_python-project-52&metric=coverage)](https://sonarcloud.io/summary/new_code?id=OlegRakhilov_python-project-52)
 
+[![Coverage](https://sonarcloud.io)](https://sonarcloud.io/summary/new_code?id=OlegRakhilov_python-project-52)
+
+
 ### [Посмотреть демо на Render](https://python-project-52-phta.onrender.com)
 
 # Django Task Manager
