@@ -6,7 +6,7 @@ from task_manager.labels.models import Label
 
 
 class Task(models.Model):
-    name = models.CharField(max_length=150, verbose_name=_("Name"))
+    name = models.CharField(max_length=150, unique=True, verbose_name=_("Name"))
     description = models.TextField(blank=True, verbose_name=_("Description"))
 
     # Автор устанавливается автоматически (текущий юзер)
